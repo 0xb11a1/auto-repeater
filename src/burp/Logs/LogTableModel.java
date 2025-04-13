@@ -18,8 +18,9 @@ public class LogTableModel extends AbstractTableModel {
     log.add(logEntry);
     if(filters.filter(logEntry)) {
       filteredLogs.add(logEntry);
+      int currRowIndex = filteredLogs.size() - 1;
+      fireTableRowsInserted(currRowIndex,currRowIndex);
     }
-    fireTableDataChanged();
   }
 
   public void filterLogs(Filters filters) {
